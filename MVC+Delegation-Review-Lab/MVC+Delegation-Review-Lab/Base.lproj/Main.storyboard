@@ -71,7 +71,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="jHa-CG-UyK">
             <objects>
                 <viewController id="Lc4-ev-Fdr" customClass="SettingsViewController" customModule="MVC_Delegation_Review_Lab" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,8 +102,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Iq-KpJ">
-                                <rect key="frame" x="172" y="575" width="71" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Iq-KpJ">
+                                <rect key="frame" x="8" y="575" width="398" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -113,7 +113,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="CBa-hP-BuD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gKo-iS-6Z0"/>
+                    <navigationItem key="navigationItem" title="Settings" id="gKo-iS-6Z0"/>
                     <connections>
                         <outlet property="fontSizeLabel" destination="0ab-Iq-KpJ" id="4y9-xT-Snl"/>
                         <outlet property="fontSizeSlider" destination="jOo-E8-o0E" id="HBF-wp-jdQ"/>

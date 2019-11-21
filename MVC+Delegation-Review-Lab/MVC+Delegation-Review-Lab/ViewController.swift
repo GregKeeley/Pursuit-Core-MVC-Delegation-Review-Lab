@@ -17,6 +17,7 @@ class ViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    var fontSize = CGFloat()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,15 @@ class ViewController: UIViewController {
     
     func loadData() {
         movies = Movie.allMovies
+        
     }
-    
+    @IBAction func fontSizeChange(segue: UIStoryboardSegue) {
+        guard let movieViewController = segue.source as? SettingsViewController else {
+            fatalError("Unwind segue error")
+        }
+        fontSize = CGFloat(movieViewController.fontSizeStr)
+        loadData()
+    }
 }
 
 
@@ -39,6 +47,7 @@ extension ViewController: UITableViewDataSource {
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
     let movie = movies[indexPath.row]
+    cell.textLabel?.font = UIFont.systemFont(ofSize: fontSize)
     cell.textLabel?.text = movie.name
     cell.detailTextLabel?.text = movie.year.description
     cell.imageView?.image = UIImage(named: movie.posterImageName.description)

@@ -15,23 +15,27 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var fontSizeStepper: UIStepper!
 
     @IBOutlet weak var fontSizeLabel: UILabel!
-    var fontSize = String()
+    var fontSizeStr = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     func fontSizeChanged() {
-        fontSizeLabel.text = "Font size: \(fontSize)"
+        fontSizeLabel.text = "Font size: \(fontSizeStr)"
     }
 
     
     @IBAction func fontSizeSlider(_ sender: UISlider) {
-       
+        fontSizeStr = Double(sender.value)
+        fontSizeChanged()
+
     }
     
     @IBAction func fontSizeStepper(_ sender: UIStepper) {
-        
+        fontSizeStr = sender.value
+        fontSizeChanged()
+
     }
     
 }
