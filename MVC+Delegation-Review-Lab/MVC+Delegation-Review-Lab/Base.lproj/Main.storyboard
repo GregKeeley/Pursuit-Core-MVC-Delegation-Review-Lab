@@ -57,27 +57,73 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pyj-Ph-8Cr">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ZFb-QY-SJX"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ZFb-QY-SJX">
+                            <connections>
+                                <segue destination="Lc4-ev-Fdr" kind="show" id="88h-0U-Qmj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="AKZ-6C-bU5" id="Ic2-fc-cG4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="jHa-CG-UyK">
             <objects>
-                <viewController id="Lc4-ev-Fdr" sceneMemberID="viewController">
+                <viewController id="Lc4-ev-Fdr" customClass="SettingsViewController" customModule="MVC_Delegation_Review_Lab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yfj-VE-tnv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="jOo-E8-o0E">
+                                <rect key="frame" x="60" y="402" width="294" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="fontSizeSlider:" destination="rQh-It-zkA" eventType="valueChanged" id="b9S-AG-5de"/>
+                                    <action selector="fontSizeSlider:" destination="Lc4-ev-Fdr" eventType="valueChanged" id="pYm-dd-iK7"/>
+                                </connections>
+                            </slider>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="0jJ-vN-4Vu">
+                                <rect key="frame" x="160" y="491" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="fontSizeStepper:" destination="rQh-It-zkA" eventType="valueChanged" id="KfH-nw-wiu"/>
+                                    <action selector="fontSizeStepper:" destination="Lc4-ev-Fdr" eventType="valueChanged" id="pZZ-78-aaK"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change TableView Font size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anH-sb-wSi">
+                                <rect key="frame" x="39" y="156" width="336" height="33.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ab-Iq-KpJ">
+                                <rect key="frame" x="172" y="575" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="CBa-hP-BuD"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gKo-iS-6Z0"/>
+                    <connections>
+                        <outlet property="fontSizeLabel" destination="0ab-Iq-KpJ" id="4y9-xT-Snl"/>
+                        <outlet property="fontSizeSlider" destination="jOo-E8-o0E" id="HBF-wp-jdQ"/>
+                        <outlet property="fontSizeStepper" destination="0jJ-vN-4Vu" id="bDy-6b-RGd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih3-ex-dMo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rQh-It-zkA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="110"/>
+            <point key="canvasLocation" x="1829" y="113"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FEQ-Gf-yWW">
