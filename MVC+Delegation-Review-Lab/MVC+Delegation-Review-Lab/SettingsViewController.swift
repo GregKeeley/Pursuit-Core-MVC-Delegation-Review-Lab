@@ -11,31 +11,33 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var fontSizeSlider: UISlider!
-    
     @IBOutlet weak var fontSizeStepper: UIStepper!
-
     @IBOutlet weak var fontSizeLabel: UILabel!
-    var fontSizeStr = Double()
+    
+    var fontSize = Double()
+    var fontSizeDelegate: FontSize?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fontSizeDelegate.de
     }
+    
 
     func fontSizeChanged() {
-        fontSizeLabel.text = "Font size: \(fontSizeStr.rounded())"
+        fontSizeLabel.text = "Font size: \(fontSize.rounded())"
     }
     func changeFontSize() {
         
     }
     
     @IBAction func fontSizeSlider(_ sender: UISlider) {
-        fontSizeStr = Double(sender.value)
+        fontSize = Double(sender.value)
         fontSizeChanged()
 
     }
     
     @IBAction func fontSizeStepper(_ sender: UIStepper) {
-        fontSizeStr = sender.value
+        fontSize = sender.value
         fontSizeChanged()
 
     }

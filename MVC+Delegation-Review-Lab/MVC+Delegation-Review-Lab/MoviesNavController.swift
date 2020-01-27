@@ -9,13 +9,11 @@
 import UIKit
 
 class MoviesNavController: UINavigationController {
-
-        private let fontSizePersistence = 
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
 

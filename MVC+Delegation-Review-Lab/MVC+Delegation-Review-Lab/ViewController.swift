@@ -18,11 +18,12 @@ class ViewController: UIViewController {
         }
     }
     var fontSize = CGFloat()
-    
+    var fontSizeDelegate = FontSize()
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
         tableView.dataSource = self
+        fontSizeDelegate.delegate = self
     }
     
     func loadData() {
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
         guard let movieViewController = segue.source as? SettingsViewController else {
             fatalError("Unwind segue error")
         }
-        fontSize = CGFloat(movieViewController.fontSizeStr)
+        fontSize = CGFloat(movieViewController.fontSize)
         loadData()
     }
 }
@@ -54,4 +55,11 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     return cell
     }
 
+}
+extension ViewController: FontSizeDelegate {
+    func changeFontSize() {
+        
+    }
+    
+    
 }
