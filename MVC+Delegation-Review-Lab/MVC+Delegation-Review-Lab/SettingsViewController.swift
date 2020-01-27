@@ -22,9 +22,11 @@ class SettingsViewController: UIViewController {
     }
 
     func fontSizeChanged() {
-        fontSizeLabel.text = "Font size: \(fontSizeStr)"
+        fontSizeLabel.text = "Font size: \(fontSizeStr.rounded())"
     }
-
+    func changeFontSize() {
+        
+    }
     
     @IBAction func fontSizeSlider(_ sender: UISlider) {
         fontSizeStr = Double(sender.value)
