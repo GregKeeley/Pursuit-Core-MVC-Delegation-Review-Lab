@@ -17,25 +17,36 @@ class ViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    var fontSize = CGFloat()
-    var fontSizeDelegate = FontSize()
+    let settingsDelegate = SettingsViewController()
+    var fontSize = CGFloat() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
         tableView.dataSource = self
-        fontSizeDelegate.delegate = self
+        settingsDelegate.fontSizeDelegate = self
     }
     
     func loadData() {
         movies = Movie.allMovies
         
     }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let settingsVC = segue.source as? SettingsViewController else {
+//            fatalError("Failed to segue from settingsVC")
+//        }
+//        fontSize = CGFloat(settingsVC.currentFontSize)
+//    }
     @IBAction func fontSizeChange(segue: UIStoryboardSegue) {
-        guard let movieViewController = segue.source as? SettingsViewController else {
+        guard let settingsVC = segue.source as? SettingsViewController else {
             fatalError("Unwind segue error")
         }
-        fontSize = CGFloat(movieViewController.fontSize)
-        loadData()
+        fontSize = CGFloat(settingsVC.currentFontSize)
+//        loadData()
     }
 }
 
@@ -57,7 +68,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 }
 extension ViewController: FontSizeDelegate {
-    func changeFontSize() {
+    func changeFontSize(_ fontSize: CGFloat) {
         
     }
     
