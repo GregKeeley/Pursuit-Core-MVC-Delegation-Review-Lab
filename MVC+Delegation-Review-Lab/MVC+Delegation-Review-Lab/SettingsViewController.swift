@@ -17,16 +17,13 @@ class SettingsViewController: UIViewController {
             fontSizeLabel.font.withSize(currentFontSize)
         }
     }
-    
-    var currentFontSize = CGFloat(17)
-    
-    var fontSize = Double() {
+    weak var fontSizeDelegate: FontSizeDelegate?
+
+    var currentFontSize = CGFloat(17) {
         didSet {
-            
+            fontSizeDelegate?.changeFontSize(currentFontSize)
         }
     }
-    
-    weak var fontSizeDelegate: FontSizeDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,35 +31,23 @@ class SettingsViewController: UIViewController {
     }
 
     func fontSizeChanged(value: CGFloat) {
-        
         fontSizeDelegate?.changeFontSize(CGFloat(currentFontSize))
         currentFontSize = value
         fontSizeLabel.text = "Font size: \(value.rounded())"
         fontSizeSlider.value = Float(currentFontSize)
         fontSizeStepper.value = Double(currentFontSize)
-        
-    }
-    func changeFontSize() {
-        
     }
     
     @IBAction func fontSizeSlider(_ sender: UISlider) {
-        fontSize = Double(sender.value)
+        currentFontSize = CGFloat(sender.value)
         fontSizeChanged(value: CGFloat(sender.value))
 
     }
     
     @IBAction func fontSizeStepper(_ sender: UIStepper) {
-        fontSize = sender.value
+        currentFontSize = CGFloat(sender.value)
         fontSizeChanged(value: CGFloat(sender.value))
 
     }
-    
-}
-extension SettingsViewController: FontSizeDelegate {
-    func changeFontSize(_ fontSize: CGFloat) {
-        
-    }
-    
     
 }
